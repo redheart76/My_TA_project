@@ -1,0 +1,23 @@
+{
+  "name": "my_ta_project",
+  "version": "1.0.0",
+  "description": "Build a comprehensive test suite with Cucumber in Playwright to automated testing a web app",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/redheart76/My_TA_project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/redheart76/My_TA_project/issues"
+  },
+  "homepage": "https://github.com/redheart76/My_TA_project#readme",
+  "devDependencies": {
+    "@cucumber/cucumber": "^11.3.0",
+    "@playwright/test": "^1.52.0",
+    "@types/node": "^22.15.21"
+  }
+}
