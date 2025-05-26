@@ -134,3 +134,26 @@ dist
 /playwright-report/
 /blob-report/
 /playwright/.cache/
+
+#reports
+reports/*
+traces/
+
+#output files
+screenshots/*
+videos/*
+
+#build
+build
+dist/
+docs/
+storageStates/*
+
+# Typescript v1 declaration files
+typings/
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
