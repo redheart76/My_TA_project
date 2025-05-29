@@ -3,7 +3,25 @@
   "version": "1.0.0",
   "description": "Build a comprehensive test suite with Cucumber in Playwright to automated testing a web app",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "api": "set DEBUG=pw:api && cucumber-js",
+    "build": "rimraf build && npm run format && npm run lint && tsc && npm run cucumber:check",
+    "cucumber:check": "cucumber-js features/**/*.feature --dry-run --require env/set-environment-variables.ts --require world/custom-world.ts --require step-definitions/**/*.ts --require hooks/**/*.ts  --require-module ts-node/register --format-options \"{\\\"snippetInterface\\\": \\\"async-await\\\"}\" --format summary --format progress --format progress-bar",
+    "debug": "set PWDEBUG=1 && set DEBUG=pw:api && cucumber-js --tags @only",
+    "video": "set PWVIDEO=1 && npm run test -- --tags @video",
+    "eslint:fix": "eslint ./ --fix",
+    "eslint:init": "eslint --init",
+    "format": "prettier --write \"**/*.{ts,tsx,css,html}\" ",
+    "lint": "eslint ./ --format visualstudio --no-color --report-unused-disable-directives",
+    "only": "cucumber-js --tags @only",
+    "snippets": "cucumber-js features/**/*.feature --dry-run --format snippets",
+    "steps:usage": "cucumber-js features/**/*.feature --dry-run",
+    "all": "cucumber-js features/**/*.feature",
+    "test": "cucumber-js",
+    "test:test": "cucumber-js --world-parameters '{\"environment\":\"test\"}'",
+    "test:parallel": "cucumber-js --parallel=5",
+    "rerun": "cucumber-js ./reports/@rerun.txt --parallel=3"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/redheart76/My_TA_project.git"
@@ -17,13 +35,19 @@
   "homepage": "https://github.com/redheart76/My_TA_project#readme",
   "devDependencies": {
     "@cucumber/cucumber": "^11.3.0",
+    "@cucumber/pretty-formatter": "^1.0.1",
     "@playwright/test": "^1.52.0",
     "@types/fs-extra": "^11.0.4",
     "@types/node": "^22.15.21",
-    "eslint": "^9.27.0"
+    "eslint": "^9.27.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
   },
   "dependencies": {
+    "@faker-js/faker": "^9.8.0",
     "dayjs": "^1.11.13",
-    "fs-extra": "^11.3.0"
+    "dotenv": "^16.5.0",
+    "fs-extra": "^11.3.0",
+    "ignore": "^7.0.4"
   }
 }

@@ -1,0 +1,9 @@
+{
+  "email": [
+  ],
+  "redirects": {
+    "base": "https://automationexercise.com/",
+    "signup": "https://automationexercise.com/login"
+  }
+
+}
